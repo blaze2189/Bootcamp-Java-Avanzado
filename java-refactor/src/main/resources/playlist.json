@@ -1,0 +1,324 @@
+{
+  "items": [
+    {
+      "added_by": {
+        "id": "22ldtp6equmzerl3w4kr6bfty"
+      },
+      "track": {
+        "album": {
+          "album_type": "album",
+          "href": "https://api.spotify.com/v1/albums/1YKiiRFhUVaLMVEu0l59Ri",
+          "id": "1YKiiRFhUVaLMVEu0l59Ri",
+          "name": "Corridos De Alto Calibre",
+          "release_date": "2013-01-01",
+          "total_tracks": 14
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/4jogXSSvlyMkODGSZ2wc2P"
+            },
+            "href": "https://api.spotify.com/v1/artists/4jogXSSvlyMkODGSZ2wc2P",
+            "id": "4jogXSSvlyMkODGSZ2wc2P",
+            "name": "Calibre 50",
+            "type": "artist",
+            "uri": "spotify:artist:4jogXSSvlyMkODGSZ2wc2P"
+          }
+        ],
+        "explicit": false,
+        "id": "7kyK2NSDfRE1612vdYuqIx",
+        "is_playable": true,
+        "name": "Javier El De Los Llanos",
+        "popularity": 63
+      }
+    },
+    {
+      "added_by": {
+        "id": "22ldtp6equmzerl3w4kr6bfty"
+      },
+      "track": {
+        "album": {
+          "album_type": "album",
+          "href": "https://api.spotify.com/v1/albums/3XPV75rmAKWAeVJtXuERzz",
+          "id": "3XPV75rmAKWAeVJtXuERzz",
+          "name": "Archivos de Mi Vida",
+          "release_date": "2016-04-15",
+          "total_tracks": 16
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/4J13m9IZh03PEhoxAxRhXO"
+            },
+            "href": "https://api.spotify.com/v1/artists/4J13m9IZh03PEhoxAxRhXO",
+            "id": "4J13m9IZh03PEhoxAxRhXO",
+            "name": "Gerardo Ortiz",
+            "type": "artist",
+            "uri": "spotify:artist:4J13m9IZh03PEhoxAxRhXO"
+          }
+        ],
+        "explicit": false,
+        "id": "1Kxap8UbrmlXcgKBuCysNg",
+        "is_playable": true,
+        "name": "Quién Se Anima",
+        "popularity": 62
+      }
+    },
+    {
+      "added_by": {
+        "id": "22ldtp6equmzerl3w4kr6bfty"
+      },
+      "track": {
+        "album": {
+          "album_type": "album",
+          "href": "https://api.spotify.com/v1/albums/50x6RBfdV0Ao2eX3T2ekty",
+          "id": "50x6RBfdV0Ao2eX3T2ekty",
+          "name": "Durmiendo en el Lugar Equivocado",
+          "release_date": "2016-11-18",
+          "total_tracks": 13
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/49EE6lVLgU8sp7dFgPshgM"
+            },
+            "href": "https://api.spotify.com/v1/artists/49EE6lVLgU8sp7dFgPshgM",
+            "id": "49EE6lVLgU8sp7dFgPshgM",
+            "name": "La Adictiva Banda San José de Mesillas",
+            "type": "artist",
+            "uri": "spotify:artist:49EE6lVLgU8sp7dFgPshgM"
+          }
+        ],
+        "explicit": false,
+        "id": "07CbP9gg9RZI9jL0LuRedo",
+        "is_playable": true,
+        "name": "Qué Caro Estoy Pagando",
+        "popularity": 44
+      }
+    },
+    {
+      "added_by": {
+        "id": "some_random_user"
+      },
+      "track": {
+        "album": {
+          "album_type": "album",
+          "href": "https://api.spotify.com/v1/albums/6j5EAbJaJqdUGIYmaLm8dT",
+          "id": "6j5EAbJaJqdUGIYmaLm8dT",
+          "name": "Surcando El Camino",
+          "release_date": "2013-08-21",
+          "total_tracks": 16
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/32YGQsNtuwyobFFnn8ikpe"
+            },
+            "href": "https://api.spotify.com/v1/artists/32YGQsNtuwyobFFnn8ikpe",
+            "id": "32YGQsNtuwyobFFnn8ikpe",
+            "name": "Hijos De Barron",
+            "type": "artist",
+            "uri": "spotify:artist:32YGQsNtuwyobFFnn8ikpe"
+          }
+        ],
+        "explicit": false,
+        "id": "3VhsyXBju9c0llS5zHKLPO",
+        "is_playable": true,
+        "name": "Surcando El Camino",
+        "popularity": 45
+      }
+    },
+    {
+      "added_by": {
+        "id": "random_user_2"
+      },
+      "track": {
+        "album": {
+          "album_type": "album",
+          "href": "https://api.spotify.com/v1/albums/7M2i31TZWIiqZeZs7rXWTK",
+          "id": "7M2i31TZWIiqZeZs7rXWTK",
+          "name": "Sinaloense Hecho Y Derecho",
+          "release_date": "2016-01-05",
+          "total_tracks": 17
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/32YGQsNtuwyobFFnn8ikpe"
+            },
+            "href": "https://api.spotify.com/v1/artists/32YGQsNtuwyobFFnn8ikpe",
+            "id": "32YGQsNtuwyobFFnn8ikpe",
+            "name": "Hijos De Barron",
+            "type": "artist",
+            "uri": "spotify:artist:32YGQsNtuwyobFFnn8ikpe"
+          }
+        ],
+        "explicit": true,
+        "id": "1wItTiNVsl8XKykIRltq0Z",
+        "is_playable": true,
+        "name": "Sinaloense Hecho y Derecho",
+        "popularity": 36
+      }
+    },
+    {
+      "added_by": {
+        "id": "dev_user"
+      },
+      "track": {
+        "album": {
+          "album_type": "compilation",
+          "href": "https://api.spotify.com/v1/albums/4OGTFgqeWBWK6FWJYAA8Ap",
+          "id": "4OGTFgqeWBWK6FWJYAA8Ap",
+          "name": "El Karma",
+          "release_date": "2014-09-23",
+          "total_tracks": 14
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2Lxa3SFNEW0alfRvtdXOul"
+            },
+            "href": "https://api.spotify.com/v1/artists/2Lxa3SFNEW0alfRvtdXOul",
+            "id": "2Lxa3SFNEW0alfRvtdXOul",
+            "name": "Ariel Camacho y Los Plebes Del Rancho",
+            "type": "artist",
+            "uri": "spotify:artist:2Lxa3SFNEW0alfRvtdXOul"
+          }
+        ],
+        "explicit": false,
+        "id": "19PIq4WexQkhQfOUWNV1bl",
+        "is_playable": true,
+        "name": "El Señor de los Cielos",
+        "popularity": 52
+      }
+    },
+    {
+      "added_by": {
+        "id": "workaholic"
+      },
+      "track": {
+        "album": {
+          "album_type": "album",
+          "href": "https://api.spotify.com/v1/albums/5j4Jj0DflPXIWwrJa3W5hS",
+          "id": "5j4Jj0DflPXIWwrJa3W5hS",
+          "name": "Senzu-Rah",
+          "release_date": "2014-10-27",
+          "total_tracks": 15
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/0YRwUbRxrawmnBdixwJi5W"
+            },
+            "href": "https://api.spotify.com/v1/artists/0YRwUbRxrawmnBdixwJi5W",
+            "id": "0YRwUbRxrawmnBdixwJi5W",
+            "name": "Regulo Caro",
+            "type": "artist",
+            "uri": "spotify:artist:0YRwUbRxrawmnBdixwJi5W"
+          }
+        ],
+        "explicit": false,
+        "id": "5Nw7pQPuTGqDMcNZ48oOCU",
+        "is_playable": true,
+        "name": "El Alacran Trabado",
+        "popularity": 40
+      }
+    },
+    {
+      "added_by": {
+        "id": "asdajcuakansj76asksldjy8976"
+      },
+      "track": {
+        "album": {
+          "album_type": "album",
+          "href": "https://api.spotify.com/v1/albums/1udzzVN47urH7cthUlyRMz",
+          "id": "1udzzVN47urH7cthUlyRMz",
+          "name": "Especialista",
+          "release_date": "2013-08-27",
+          "total_tracks": 13
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/0YRwUbRxrawmnBdixwJi5W"
+            },
+            "href": "https://api.spotify.com/v1/artists/0YRwUbRxrawmnBdixwJi5W",
+            "id": "0YRwUbRxrawmnBdixwJi5W",
+            "name": "Regulo Caro",
+            "type": "artist",
+            "uri": "spotify:artist:0YRwUbRxrawmnBdixwJi5W"
+          }
+        ],
+        "explicit": false,
+        "id": "4doAczw4VqEa9qJu1M8Ou5",
+        "is_playable": true,
+        "name": "Empujando la Línea",
+        "popularity": 58
+      }
+    },
+    {
+      "added_by": {
+        "id": "worker_worker"
+      },
+      "track": {
+        "album": {
+          "album_type": "album",
+          "href": "https://api.spotify.com/v1/albums/5j4Jj0DflPXIWwrJa3W5hS",
+          "id": "5j4Jj0DflPXIWwrJa3W5hS",
+          "name": "Senzu-Rah",
+          "release_date": "2014-10-27",
+          "total_tracks": 15
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/0YRwUbRxrawmnBdixwJi5W"
+            },
+            "href": "https://api.spotify.com/v1/artists/0YRwUbRxrawmnBdixwJi5W",
+            "id": "0YRwUbRxrawmnBdixwJi5W",
+            "name": "Regulo Caro",
+            "type": "artist",
+            "uri": "spotify:artist:0YRwUbRxrawmnBdixwJi5W"
+          }
+        ],
+        "explicit": false,
+        "id": "4jgKVF6yT6dZJrHQtw5GZe",
+        "is_playable": true,
+        "name": "Soltero Disponible",
+        "popularity": 53
+      }
+    },
+    {
+      "added_by": {
+        "id": "my_user"
+      },
+      "track": {
+        "album": {
+          "album_type": "album",
+          "href": "https://api.spotify.com/v1/albums/5J76LZjbmM4N6gCOZZBEXH",
+          "id": "5J76LZjbmM4N6gCOZZBEXH",
+          "name": "Soy Lo Que Quiero... Indispensable",
+          "release_date": "2013-01-01",
+          "total_tracks": 12
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/1bfl0AU8SqmLkElptOprhC"
+            },
+            "href": "https://api.spotify.com/v1/artists/1bfl0AU8SqmLkElptOprhC",
+            "id": "1bfl0AU8SqmLkElptOprhC",
+            "name": "Julión Álvarez y su Norteño Banda",
+            "type": "artist",
+            "uri": "spotify:artist:1bfl0AU8SqmLkElptOprhC"
+          }
+        ],
+        "explicit": false,
+        "id": "7mW37ffLcI8FgpHYvDETdk",
+        "is_playable": false,
+        "name": "Te Hubieras Ido Antes",
+        "popularity": 0
+      }
+    }
+  ]
+}
