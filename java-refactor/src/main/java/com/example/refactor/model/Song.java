@@ -14,13 +14,16 @@ public class Song {
     private String albumReleaseDate;
     private String albumTotalTracks;
 
-    public SpotifyArtist spotifyArtist;
+    //Modificaciòn del modificador de acceso a privado
+    private Artist artist;
+
+    private Song(){}
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    private void setId(String id) {
         this.id = id;
     }
 
@@ -28,7 +31,7 @@ public class Song {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -36,7 +39,7 @@ public class Song {
         return explicit;
     }
 
-    public void setExplicit(String explicit) {
+    private void setExplicit(String explicit) {
         this.explicit = explicit;
     }
 
@@ -44,7 +47,7 @@ public class Song {
         return playable;
     }
 
-    public void setPlayable(String playable) {
+    private void setPlayable(String playable) {
         this.playable = playable;
     }
 
@@ -52,7 +55,7 @@ public class Song {
         return popularity;
     }
 
-    public void setPopularity(String popularity) {
+    private void setPopularity(String popularity) {
         this.popularity = popularity;
     }
 
@@ -60,7 +63,7 @@ public class Song {
         return albumId;
     }
 
-    public void setAlbumId(String albumId) {
+    private void setAlbumId(String albumId) {
         this.albumId = albumId;
     }
 
@@ -68,7 +71,7 @@ public class Song {
         return albumType;
     }
 
-    public void setAlbumType(String albumType) {
+    private void setAlbumType(String albumType) {
         this.albumType = albumType;
     }
 
@@ -76,7 +79,7 @@ public class Song {
         return albumName;
     }
 
-    public void setAlbumName(String albumName) {
+    private void setAlbumName(String albumName) {
         this.albumName = albumName;
     }
 
@@ -84,7 +87,7 @@ public class Song {
         return albumReleaseDate;
     }
 
-    public void setAlbumReleaseDate(String albumReleaseDate) {
+    private void setAlbumReleaseDate(String albumReleaseDate) {
         this.albumReleaseDate = albumReleaseDate;
     }
 
@@ -92,15 +95,118 @@ public class Song {
         return albumTotalTracks;
     }
 
-    public void setAlbumTotalTracks(String albumTotalTracks) {
+    private void setAlbumTotalTracks(String albumTotalTracks) {
         this.albumTotalTracks = albumTotalTracks;
     }
 
-    public SpotifyArtist getSpotifyArtist() {
-        return spotifyArtist;
+    public Artist getSpotifyArtist() {
+        return artist;
     }
 
-    public void setSpotifyArtist(SpotifyArtist spotifyArtist) {
-        this.spotifyArtist = spotifyArtist;
+    private void setArtist(Artist artist){
+        this.artist=artist;
     }
+
+    private void setSpotifyArtist(Artist artist) {
+        this.artist = artist;
+    }
+
+    public static Builder builder(){
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        private String id;
+        private String name;
+        private String explicit;
+        private String playable;
+        private String popularity;
+
+        private String albumId;
+        private String albumType;
+        private String albumName;
+        private String albumReleaseDate;
+        private String albumTotalTracks;
+
+        private Artist artist;
+
+        private Builder() {}
+
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder explicit(String explicit) {
+            this.explicit = explicit;
+            return this;
+        }
+
+        public Builder playable(String playable) {
+            this.playable = playable;
+            return this;
+        }
+
+        public Builder popularity(String popularity) {
+            this.popularity = popularity;
+            return this;
+        }
+
+
+        public Builder albumId(String albumId) {
+            this.albumId = albumId;
+            return this;
+        }
+
+        public Builder albumType(String albumType) {
+            this.albumType = albumType;
+            return this;
+        }
+
+        public Builder albumName(String albumName) {
+            this.albumName = albumName;
+            return this;
+        }
+
+        public Builder albumReleaseDate(String albumReleaseDate) {
+            this.albumReleaseDate = albumReleaseDate;
+            return this;
+        }
+
+        public Builder artist(Artist artist){
+            this.artist=artist;
+            return this;
+        }
+
+        public Builder albumTotalTracks(String albumTotalTracks) {
+            this.albumTotalTracks = albumTotalTracks;
+            return this;
+        }
+
+        public Song build(){
+            Song song = new Song();
+
+            song.setId(id);
+            song.setName(name);
+            song.setExplicit(explicit);
+            song.setPlayable(playable);
+            song.setPopularity(popularity);
+            song.setAlbumId(albumId);
+            song.setAlbumType(albumType);
+            song.setAlbumName(albumName);
+            song.setAlbumReleaseDate(albumReleaseDate);
+            song.setAlbumTotalTracks(albumTotalTracks);
+            song.setArtist(artist);
+
+            return song;
+        }
+
+    }
+
 }
