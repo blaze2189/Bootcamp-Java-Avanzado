@@ -20,7 +20,6 @@ public class PropertyFactory {
             properties.load(inputStream);
         } catch (IOException e) {
             LOGGER.error("ERROR while reading the configuration file: {}", e.getMessage());
-            e.printStackTrace();
         }
     }
 

@@ -2,18 +2,16 @@ package com.example.refactor.service;
 
 import com.example.refactor.dto.SpotifyArtisDTO;
 import com.example.refactor.dto.SpotifyDTO;
-import com.example.refactor.model.Song;
 import com.example.refactor.model.Artist;
+import com.example.refactor.model.Song;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
