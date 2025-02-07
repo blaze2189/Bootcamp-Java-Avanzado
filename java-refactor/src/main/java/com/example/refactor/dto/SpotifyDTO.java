@@ -14,7 +14,7 @@ public class SpotifyDTO {
         return track;
     }
 
-    public void setTrack(SpotifyTrackDTO track) {
+    private void setTrack(SpotifyTrackDTO track) {
         this.track = track;
     }
 }

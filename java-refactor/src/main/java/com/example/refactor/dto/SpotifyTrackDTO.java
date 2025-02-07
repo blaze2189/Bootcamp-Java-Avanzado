@@ -21,7 +21,7 @@ public class SpotifyTrackDTO {
         return artists;
     }
 
-    public void setArtists(List<SpotifyArtisDTO> artists) {
+    private void setArtists(List<SpotifyArtisDTO> artists) {
         this.artists = artists;
     }
 
@@ -29,7 +29,7 @@ public class SpotifyTrackDTO {
         return album;
     }
 
-    public void setAlbum(Map<String, Object> album) {
+    private void setAlbum(Map<String, Object> album) {
         this.album = album;
     }
 
@@ -37,7 +37,7 @@ public class SpotifyTrackDTO {
         return external_urls;
     }
 
-    public void setExternal_urls(List<Map<String, Object>> external_urls) {
+    private void setExternal_urls(List<Map<String, Object>> external_urls) {
         this.external_urls = external_urls;
     }
 
@@ -45,7 +45,7 @@ public class SpotifyTrackDTO {
         return explicit.toString();
     }
 
-    public void setExplicit(Boolean explicit) {
+    private void setExplicit(Boolean explicit) {
         this.explicit = explicit;
     }
 
@@ -53,7 +53,7 @@ public class SpotifyTrackDTO {
         return id;
     }
 
-    public void setId(String id) {
+    private void setId(String id) {
         this.id = id;
     }
 
@@ -61,7 +61,7 @@ public class SpotifyTrackDTO {
         return is_playable;
     }
 
-    public void setIs_playable(Boolean is_playable) {
+    private void setIs_playable(Boolean is_playable) {
         this.is_playable = is_playable;
     }
 
@@ -69,7 +69,7 @@ public class SpotifyTrackDTO {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -77,7 +77,7 @@ public class SpotifyTrackDTO {
         return popularity;
     }
 
-    public void setPopularity(Integer popularity) {
+    private void setPopularity(Integer popularity) {
         this.popularity = popularity;
     }
 }
