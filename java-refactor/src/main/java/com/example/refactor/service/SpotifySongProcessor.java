@@ -2,6 +2,7 @@ package com.example.refactor.service;
 
 import com.example.refactor.dto.SpotifyArtisDTO;
 import com.example.refactor.dto.SpotifyDTO;
+import com.example.refactor.dto.SpotifyTrackDTO;
 import com.example.refactor.model.Artist;
 import com.example.refactor.model.Song;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -51,7 +52,7 @@ public class SpotifySongProcessor implements SongProcessor{
     }
 
     private Song processDTOSong(SpotifyDTO spotifyDTO) {
-        SpotifyDTO.SpotifyTrackDTO trackDTO = spotifyDTO.getTrack();
+        SpotifyTrackDTO trackDTO = spotifyDTO.getTrack();
         List<SpotifyArtisDTO> artistsList = trackDTO.getArtists();
         Song.Builder songBuilder = Song.builder().explicit(trackDTO.getExplicit()).
                 id(trackDTO.getId()).
