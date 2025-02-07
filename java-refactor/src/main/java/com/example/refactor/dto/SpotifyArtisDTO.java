@@ -12,7 +12,7 @@ public class SpotifyArtisDTO {
         return id;
     }
 
-    public void setId(String id) {
+    private void setId(String id) {
         this.id = id;
     }
 
@@ -20,7 +20,7 @@ public class SpotifyArtisDTO {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 }
