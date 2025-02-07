@@ -5,8 +5,8 @@ public class Song {
     private String id;
     private String name;
     private String explicit;
-    private String playable;
-    private String popularity;
+    private Boolean playable;
+    private Integer popularity;
 
     private String albumId;
     private String albumType;
@@ -43,19 +43,19 @@ public class Song {
         this.explicit = explicit;
     }
 
-    public String getPlayable() {
+    public Boolean getPlayable() {
         return playable;
     }
 
-    private void setPlayable(String playable) {
+    private void setPlayable(Boolean playable) {
         this.playable = playable;
     }
 
-    public String getPopularity() {
+    public Integer getPopularity() {
         return popularity;
     }
 
-    private void setPopularity(String popularity) {
+    private void setPopularity(Integer popularity) {
         this.popularity = popularity;
     }
 
@@ -120,8 +120,8 @@ public class Song {
         private String id;
         private String name;
         private String explicit;
-        private String playable;
-        private String popularity;
+        private Boolean playable;
+        private Integer popularity;
 
         private String albumId;
         private String albumType;
@@ -148,12 +148,12 @@ public class Song {
             return this;
         }
 
-        public Builder playable(String playable) {
+        public Builder playable(Boolean playable) {
             this.playable = playable;
             return this;
         }
 
-        public Builder popularity(String popularity) {
+        public Builder popularity(Integer popularity) {
             this.popularity = popularity;
             return this;
         }
