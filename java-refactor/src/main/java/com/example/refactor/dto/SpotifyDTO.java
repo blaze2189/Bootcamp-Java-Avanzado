@@ -6,15 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SpotifyDTO {
+public record SpotifyDTO (SpotifyTrackDTO track){
 
-    private SpotifyTrackDTO track;
-
-    public SpotifyTrackDTO getTrack() {
-        return track;
-    }
-
-    private void setTrack(SpotifyTrackDTO track) {
-        this.track = track;
-    }
 }

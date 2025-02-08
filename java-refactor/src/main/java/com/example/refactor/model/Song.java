@@ -1,115 +1,16 @@
 package com.example.refactor.model;
 
-public class Song {
-
-    private String id;
-    private String name;
-    private String explicit;
-    private Boolean playable;
-    private Integer popularity;
-
-    private String albumId;
-    private String albumType;
-    private String albumName;
-    private String albumReleaseDate;
-    private String albumTotalTracks;
-
-    //Modificaciòn del modificador de acceso a privado
-    private Artist artist;
-
-    private Song(){}
-
-    public String getId() {
-        return id;
-    }
-
-    private void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    private void setName(String name) {
-        this.name = name;
-    }
-
-    public String getExplicit() {
-        return explicit;
-    }
-
-    private void setExplicit(String explicit) {
-        this.explicit = explicit;
-    }
-
-    public Boolean getPlayable() {
-        return playable;
-    }
-
-    private void setPlayable(Boolean playable) {
-        this.playable = playable;
-    }
-
-    public Integer getPopularity() {
-        return popularity;
-    }
-
-    private void setPopularity(Integer popularity) {
-        this.popularity = popularity;
-    }
-
-    public String getAlbumId() {
-        return albumId;
-    }
-
-    private void setAlbumId(String albumId) {
-        this.albumId = albumId;
-    }
-
-    public String getAlbumType() {
-        return albumType;
-    }
-
-    private void setAlbumType(String albumType) {
-        this.albumType = albumType;
-    }
-
-    public String getAlbumName() {
-        return albumName;
-    }
-
-    private void setAlbumName(String albumName) {
-        this.albumName = albumName;
-    }
-
-    public String getAlbumReleaseDate() {
-        return albumReleaseDate;
-    }
-
-    private void setAlbumReleaseDate(String albumReleaseDate) {
-        this.albumReleaseDate = albumReleaseDate;
-    }
-
-    public String getAlbumTotalTracks() {
-        return albumTotalTracks;
-    }
-
-    private void setAlbumTotalTracks(String albumTotalTracks) {
-        this.albumTotalTracks = albumTotalTracks;
-    }
-
-    public Artist getSpotifyArtist() {
-        return artist;
-    }
-
-    private void setArtist(Artist artist){
-        this.artist=artist;
-    }
-
-    private void setSpotifyArtist(Artist artist) {
-        this.artist = artist;
-    }
+public record Song(String id,
+                   String name,
+                   Boolean explicit,
+                   Boolean playable,
+                   Integer popularity,
+                   String albumId,
+                   String albumType,
+                   String albumName,
+                   String albumReleaseDate,
+                   String albumTotalTracks,
+                   Artist artist){
 
     public static Builder builder(){
         return new Builder();
@@ -119,7 +20,7 @@ public class Song {
 
         private String id;
         private String name;
-        private String explicit;
+        private Boolean explicit;
         private Boolean playable;
         private Integer popularity;
 
@@ -143,7 +44,7 @@ public class Song {
             return this;
         }
 
-        public Builder explicit(String explicit) {
+        public Builder explicit(Boolean explicit) {
             this.explicit = explicit;
             return this;
         }
@@ -190,21 +91,18 @@ public class Song {
         }
 
         public Song build(){
-            Song song = new Song();
 
-            song.setId(id);
-            song.setName(name);
-            song.setExplicit(explicit);
-            song.setPlayable(playable);
-            song.setPopularity(popularity);
-            song.setAlbumId(albumId);
-            song.setAlbumType(albumType);
-            song.setAlbumName(albumName);
-            song.setAlbumReleaseDate(albumReleaseDate);
-            song.setAlbumTotalTracks(albumTotalTracks);
-            song.setArtist(artist);
-
-            return song;
+            return new Song(id,
+                    name,
+                    explicit,
+                    playable,
+                    popularity,
+                    albumId,
+                    albumType,
+                    albumName,
+                    albumReleaseDate,
+                    albumTotalTracks,
+                    artist);
         }
 
     }

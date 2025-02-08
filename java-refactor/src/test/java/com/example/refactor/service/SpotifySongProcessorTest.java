@@ -62,11 +62,11 @@ public class SpotifySongProcessorTest {
 
         List<Song> songList = spotifyDTOList.stream().map(this::processDTOSong).collect(Collectors.toList());
 
-        songList.forEach(song -> LOGGER.info(" - {} - {} - {} - {}", song.getId(), song.getName(),
-                song.getSpotifyArtist().getName(), song.getAlbumName()));
+        songList.forEach(song -> LOGGER.info(" - {} - {} - {} - {}", song.id(), song.name(),
+                song.artist().name(), song.albumName()));
 
     }
-
+    
     @Test
     public void testDTOList() {
 
