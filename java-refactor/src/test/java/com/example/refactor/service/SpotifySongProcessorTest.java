@@ -57,29 +57,29 @@ public class SpotifySongProcessorTest {
 
         List<Song> songList = spotifyDTOList.stream().map(this::processDTOSong).collect(Collectors.toList());
 
-        songList.forEach(song -> LOGGER.info(" - {} - {} - {} - {}", song.getId(), song.getName(),
-                song.getSpotifyArtist().getName(), song.getAlbumName()));
+        songList.forEach(song -> LOGGER.info(" - {} - {} - {} - {}", song.id(), song.name(),
+                song.artist().name(), song.albumName()));
 
     }
 
     private Song processDTOSong(SpotifyDTO spotifyDTO) {
-        SpotifyTrackDTO trackDTO = spotifyDTO.getTrack();
-        List<SpotifyArtisDTO> artistsList = trackDTO.getArtists();
-        Song.Builder songBuilder = Song.builder().explicit(trackDTO.getExplicit()).
-                id(trackDTO.getId()).
-                playable(trackDTO.getIs_playable()).
-                name(trackDTO.getName()).
-                popularity(trackDTO.getPopularity()).
-                albumType(trackDTO.getAlbum().get("album_type").toString()).
-                albumId(trackDTO.getAlbum().get("id").toString()).
-                albumName(trackDTO.getAlbum().get("name").toString()).
-                albumReleaseDate(trackDTO.getAlbum().get("release_date").toString()).
-                albumTotalTracks(trackDTO.getAlbum().get("total_tracks").toString());
+        SpotifyTrackDTO trackDTO = spotifyDTO.track();
+        List<SpotifyArtisDTO> artistsList = trackDTO.artists();
+        Song.Builder songBuilder = Song.builder().explicit(trackDTO.explicit()).
+                id(trackDTO.id()).
+                playable(trackDTO.is_playable()).
+                name(trackDTO.name()).
+                popularity(trackDTO.popularity()).
+                albumType(trackDTO.album().get("album_type").toString()).
+                albumId(trackDTO.album().get("id").toString()).
+                albumName(trackDTO.album().get("name").toString()).
+                albumReleaseDate(trackDTO.album().get("release_date").toString()).
+                albumTotalTracks(trackDTO.album().get("total_tracks").toString());
 
         artistsList.forEach(artists ->{
             Artist artist = Artist.builder().
-                    id(artists.getId()).
-                    name(artists.getName()).
+                    id(artists.id()).
+                    name(artists.name()).
                     build();
             songBuilder.artist(artist);
         });

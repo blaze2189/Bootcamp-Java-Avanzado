@@ -6,78 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SpotifyTrackDTO {
+public record SpotifyTrackDTO(Map<String,Object> album,
+                              List<Map<String,Object>> external_urls,
+                              Boolean explicit,
+                              String id,
+                              Boolean is_playable,
+                              String name,
+                              Integer popularity,
+                              List<SpotifyArtisDTO> artists) {
 
-    private Map<String,Object> album;
-    private List<Map<String,Object>> external_urls;
-    private Boolean explicit;
-    private String id;
-    private Boolean is_playable;
-    private String name;
-    private Integer popularity;
-    private List<SpotifyArtisDTO> artists;
-
-    public List<SpotifyArtisDTO> getArtists() {
-        return artists;
-    }
-
-    private void setArtists(List<SpotifyArtisDTO> artists) {
-        this.artists = artists;
-    }
-
-    public Map<String, Object> getAlbum() {
-        return album;
-    }
-
-    private void setAlbum(Map<String, Object> album) {
-        this.album = album;
-    }
-
-    public List<Map<String, Object>> getExternal_urls() {
-        return external_urls;
-    }
-
-    private void setExternal_urls(List<Map<String, Object>> external_urls) {
-        this.external_urls = external_urls;
-    }
-
-    public String getExplicit() {
-        return explicit.toString();
-    }
-
-    private void setExplicit(Boolean explicit) {
-        this.explicit = explicit;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    private void setId(String id) {
-        this.id = id;
-    }
-
-    public Boolean getIs_playable() {
-        return is_playable;
-    }
-
-    private void setIs_playable(Boolean is_playable) {
-        this.is_playable = is_playable;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    private void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getPopularity() {
-        return popularity;
-    }
-
-    private void setPopularity(Integer popularity) {
-        this.popularity = popularity;
-    }
 }
