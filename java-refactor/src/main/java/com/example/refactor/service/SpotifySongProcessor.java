@@ -25,8 +25,11 @@ import java.util.stream.Collectors;
 /**
  * El nombre de la clase fue cambiado para especificar que
  * es procesador de canciones de spotify
- */
-public class SpotifySongProcessor implements SongProcessor {
+ *
+ * Implmenta una selead class por lo cual se declara como final
+ * ninguna otra clase podrà heredar de SpotifySongProcessor
+* */
+public final class SpotifySongProcessor implements SongProcessor{
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SpotifySongProcessor.class);
 

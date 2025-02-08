@@ -66,7 +66,7 @@ public class SpotifySongProcessorTest {
                 song.artist().name(), song.albumName()));
 
     }
-    
+
     @Test
     public void testDTOList() {
 
