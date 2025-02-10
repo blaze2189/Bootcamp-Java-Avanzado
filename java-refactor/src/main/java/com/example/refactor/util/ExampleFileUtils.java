@@ -17,8 +17,9 @@ public class ExampleFileUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExampleFileUtils.class);
 
     public static JSONObject getJsonFromFile(File inputSource) {
+
         LOGGER.info("Input source: "+ inputSource);
-        JSONParser parser = new JSONParser();
+        var parser = new JSONParser();
         //agregando try-resources para cerrar el recurso FileReader
         try (FileReader fileReader = new FileReader(inputSource)) {
             return (JSONObject) parser.parse(fileReader);
