@@ -21,7 +21,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -60,7 +59,7 @@ public class SpotifySongProcessorTest {
 
         List<SpotifyDTO> spotifyDTOList = playlistMaObjectMapper.get("items");
 
-        List<Song> songList = spotifyDTOList.stream().map(this::processDTOSong).collect(Collectors.toList());
+        List<Song> songList = spotifyDTOList.stream().map(this::processDTOSong).toList();
 
         songList.forEach(song -> LOGGER.info(" - {} - {} - {} - {}", song.id(), song.name(),
                 song.artist().name(), song.albumName()));
@@ -175,11 +174,11 @@ public class SpotifySongProcessorTest {
                 playable(trackDTO.is_playable()).
                 name(trackDTO.name()).
                 popularity(trackDTO.popularity()).
-                albumType(trackDTO.album().get("album_type").toString()).
-                albumId(trackDTO.album().get("id").toString()).
-                albumName(trackDTO.album().get("name").toString()).
-                albumReleaseDate(trackDTO.album().get("release_date").toString()).
-                albumTotalTracks(trackDTO.album().get("total_tracks").toString());
+                albumType(trackDTO.album().album_type()).
+                        albumId(trackDTO.album().id()).
+                        albumName(trackDTO.album().name()).
+                        albumReleaseDate(trackDTO.album().release_date()).
+                        albumTotalTracks(trackDTO.album().total_tracks());
 
         artistsList.forEach(artists -> {
             Artist artist = Artist.builder().
@@ -206,7 +205,7 @@ public class SpotifySongProcessorTest {
         }
         List<SpotifyDTO> spotifyDTOList = Optional.ofNullable(playlistMaObjectMapper.get("items")).orElse(Collections.emptyList());
 
-        return spotifyDTOList.stream().map(this::processDTOSong).collect(Collectors.toList());
+        return spotifyDTOList.stream().map(this::processDTOSong).toList();
 
     }
 

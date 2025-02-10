@@ -8,3 +8,9 @@
 1. Utilización de Unit Test para validar el funcionamiento antes y después de los cambios en el código.
 1. Se cambia el uso de `JSONObject` por `ObjectMapper`, se trabaja con el supuesto que se ha definido el formato de recepción 
     por parte del provedor ficticio (Spotify).
+
+# Update Java version
+
+1. Se modifican los POJOs a records [model](./src/main/java/com/example/refactor/model), mantendonedo Builder.
+1. Se agregan DTO, tabajando bajo el supuesto que se han definido previamente con el provedor las estrucutras de datos.
+1. A partir de java 16 se pueden cambiar los `Collector.toList()` a solo usar `toList()` en `Optional`.

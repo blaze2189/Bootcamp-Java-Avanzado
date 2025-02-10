@@ -84,11 +84,12 @@ public final class SpotifySongProcessor implements SongProcessor{
             });
         } catch (JsonProcessingException e) {
             LOGGER.error("Invalid JSON object cast");
+
             return Collections.emptyList();
         }
         List<SpotifyDTO> spotifyDTOList = Optional.ofNullable(playlistMaObjectMapper.get("items")).orElse(Collections.emptyList());
 
-        return spotifyDTOList.stream().map(this::processDTOSong).collect(Collectors.toList());
+        return spotifyDTOList.stream().map(this::processDTOSong).toList();
     }
 
     private Song processDTOSong(SpotifyDTO spotifyDTO) {
@@ -99,11 +100,11 @@ public final class SpotifySongProcessor implements SongProcessor{
                 playable(trackDTO.is_playable()).
                 name(trackDTO.name()).
                 popularity(trackDTO.popularity()).
-                albumType(trackDTO.album().get("album_type").toString()).
-                albumId(trackDTO.album().get("id").toString()).
-                albumName(trackDTO.album().get("name").toString()).
-                albumReleaseDate(trackDTO.album().get("release_date").toString()).
-                albumTotalTracks(trackDTO.album().get("total_tracks").toString());
+                albumType(trackDTO.album().album_type()).
+                albumId(trackDTO.album().id()).
+                albumName(trackDTO.album().name()).
+                albumReleaseDate(trackDTO.album().release_date()).
+                albumTotalTracks(trackDTO.album().total_tracks());
 
         artistsList.forEach(artists -> {
             Artist artist = Artist.builder().
