@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record SpotifyTrackDTO(Map<String,Object> album,
+public record SpotifyTrackDTO(SpotifyAlbumDTOAlbum album, //Map<String,Object> album,
                               List<Map<String,Object>> external_urls,
                               Boolean explicit,
                               String id,
