@@ -3,19 +3,20 @@ package com.example.refactor.util;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-import java.io.*;
-import java.net.URL;
-import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Optional;
 
 public class ExampleFileUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExampleFileUtils.class);
 
     public static JSONObject getJsonFromFile(File inputSource) {
+        LOGGER.info("Input source: "+ inputSource);
         JSONParser parser = new JSONParser();
         //agregando try-resources para cerrar el recurso FileReader
         try (FileReader fileReader = new FileReader(inputSource)) {
@@ -29,14 +30,24 @@ public class ExampleFileUtils {
         return null;
     }
 
-    public static File getFileFromResources(String fileName) {
+    /**
+     * Se retorna un Optional para que se pueda hacer el manejo
+     * del mismo desde la clase que lo invoque
+     */
+    public static Optional<File> getFileFromResources(String fileName) {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
         //actualización a Optional
-        URL optionalURL = Optional.ofNullable(classLoader.getResource(fileName)).
-                orElseThrow(() -> new IllegalArgumentException("Missing file"));
+        //Se elimina IllegalArgumenException
+         Optional<File> optionalFile = Optional.ofNullable(Thread.currentThread().getContextClassLoader()).
+                map(classloader ->classloader.getResource(fileName)).
+                map(url -> new File(url.getFile()));
 
-        return new File(optionalURL.getFile());
+         //Se agrega log para informar que el archivo no ha sido encontrado
+         if(!optionalFile.isPresent()){
+             LOGGER.info("File: "+fileName +" not found");
+         }
+
+         return optionalFile;
     }
-
 }

@@ -5,6 +5,8 @@ import com.example.refactor.dto.SpotifyDTO;
 import com.example.refactor.dto.SpotifyTrackDTO;
 import com.example.refactor.model.Artist;
 import com.example.refactor.model.Song;
+import com.example.refactor.util.ExampleFileUtils;
+import com.example.refactor.util.PropertyFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,15 +15,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
-* El nombre de la clase fue cambiado para especificar que
+ * El nombre de la clase fue cambiado para especificar que
  * es procesador de canciones de spotify
-* */
-public class SpotifySongProcessor implements SongProcessor{
+ */
+public class SpotifySongProcessor implements SongProcessor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SpotifySongProcessor.class);
 
@@ -29,26 +34,37 @@ public class SpotifySongProcessor implements SongProcessor{
     public void processSongs() {
         final String playlistFileName = PropertyFactory.getProperties().getProperty("refactorpractice.playlist.filename");
         LOGGER.info("Json received " + playlistFileName);
-        final File inputSource = ExampleFileUtils.getFileFromResources(playlistFileName);
-        LOGGER.info("InputSource: " + inputSource.toString());
-        final JSONObject playlist = ExampleFileUtils.getJsonFromFile(inputSource);
-        LOGGER.info("Playlist: " + playlist.toString());
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, List<SpotifyDTO>> playlistMaObjectMapper = null;
-        try {
-            playlistMaObjectMapper = objectMapper.readValue(playlist.toString(), new TypeReference<Map<String, List<SpotifyDTO>>>() {
-            });
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-        // List<SpotifyDTO> spotifyDTOList = playlistMap.get("items");
-        List<SpotifyDTO> spotifyDTOList = playlistMaObjectMapper.get("items");
-
-        List<Song> songList = spotifyDTOList.stream().map(this::processDTOSong).collect(Collectors.toList());
+        //Agregando Optional para la lectura
+        //del objet que se recibe del archivo
+        //en caso de que exista algùn error durante
+        //el procesamiento del archivo o transformaciòn
+        //del objeto, se devuelve una lista vacía
+        //el uso del optional ayuda a manejar NullPointerException
+        List<Song> songList = ExampleFileUtils.getFileFromResources(playlistFileName).
+                map(ExampleFileUtils::getJsonFromFile).
+                map(this::processJsonSongs).
+                orElse(Collections.emptyList());
 
         songList.forEach(song -> LOGGER.info(" - {} - {} - {} - {}", song.getId(), song.getName(),
                 song.getSpotifyArtist().getName(), song.getAlbumName()));
+    }
+
+    private List<Song> processJsonSongs(JSONObject jsonObject) {
+        LOGGER.info("Playlist: " + jsonObject.toString());
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, List<SpotifyDTO>> playlistMaObjectMapper;
+        try {
+            playlistMaObjectMapper = objectMapper.readValue(jsonObject.toString(), new TypeReference<Map<String, List<SpotifyDTO>>>() {
+            });
+        } catch (JsonProcessingException e) {
+            LOGGER.error("Invalid JSON object cast");
+            return Collections.emptyList();
+        }
+        List<SpotifyDTO> spotifyDTOList = Optional.ofNullable(playlistMaObjectMapper.get("items")).orElse(Collections.emptyList());
+
+        return spotifyDTOList.stream().map(this::processDTOSong).collect(Collectors.toList());
     }
 
     private Song processDTOSong(SpotifyDTO spotifyDTO) {
@@ -65,7 +81,7 @@ public class SpotifySongProcessor implements SongProcessor{
                 albumReleaseDate(trackDTO.getAlbum().get("release_date").toString()).
                 albumTotalTracks(trackDTO.getAlbum().get("total_tracks").toString());
 
-        artistsList.forEach(artists ->{
+        artistsList.forEach(artists -> {
             Artist artist = Artist.builder().
                     id(artists.getId()).
                     name(artists.getName()).
