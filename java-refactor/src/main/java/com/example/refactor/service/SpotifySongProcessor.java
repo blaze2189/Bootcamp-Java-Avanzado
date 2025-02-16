@@ -35,7 +35,7 @@ public final class SpotifySongProcessor implements SongProcessor{
 
     @Override
     public void processSongs() {
-        final String playlistFileName = PropertyFactory.getProperties().getProperty("refactorpractice.playlist.filename");
+        final var playlistFileName = PropertyFactory.getProperties().getProperty("refactorpractice.playlist.filename");
         LOGGER.info("Json received " + playlistFileName);
 
         //Agregando Optional para la lectura
@@ -44,7 +44,7 @@ public final class SpotifySongProcessor implements SongProcessor{
         //el procesamiento del archivo o transformaciòn
         //del objeto, se devuelve una lista vacía
         //el uso del optional ayuda a manejar NullPointerException
-        List<Song> songList = ExampleFileUtils.getFileFromResources(playlistFileName).
+        var songList = ExampleFileUtils.getFileFromResources(playlistFileName).
                 map(ExampleFileUtils::getJsonFromFile).
                 map(this::processJsonSongs).
                 orElse(Collections.emptyList());
@@ -77,25 +77,25 @@ public final class SpotifySongProcessor implements SongProcessor{
     private List<Song> processJsonSongs(JSONObject jsonObject) {
         LOGGER.info("Playlist: " + jsonObject.toString());
 
-        ObjectMapper objectMapper = new ObjectMapper();
+        var objectMapper = new ObjectMapper();
         Map<String, List<SpotifyDTO>> playlistMaObjectMapper;
         try {
-            playlistMaObjectMapper = objectMapper.readValue(jsonObject.toString(), new TypeReference<Map<String, List<SpotifyDTO>>>() {
-            });
+            playlistMaObjectMapper = objectMapper.
+                    readValue(jsonObject.toString(), new TypeReference<Map<String, List<SpotifyDTO>>>() {});
         } catch (JsonProcessingException e) {
             LOGGER.error("Invalid JSON object cast");
 
             return Collections.emptyList();
         }
-        List<SpotifyDTO> spotifyDTOList = Optional.ofNullable(playlistMaObjectMapper.get("items")).orElse(Collections.emptyList());
+        var spotifyDTOList = Optional.ofNullable(playlistMaObjectMapper.get("items")).orElse(Collections.emptyList());
 
         return spotifyDTOList.stream().map(this::processDTOSong).toList();
     }
 
     private Song processDTOSong(SpotifyDTO spotifyDTO) {
-        SpotifyTrackDTO trackDTO = spotifyDTO.track();
-        List<SpotifyArtisDTO> artistsList = trackDTO.artists();
-        Song.Builder songBuilder = Song.builder().explicit(trackDTO.explicit()).
+        var trackDTO = spotifyDTO.track();
+        var artistsList = trackDTO.artists();
+        var songBuilder = Song.builder().explicit(trackDTO.explicit()).
                 id(trackDTO.id()).
                 playable(trackDTO.is_playable()).
                 name(trackDTO.name()).
