@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Optional;
 
 public class ExampleFileUtils {
@@ -39,15 +40,22 @@ public class ExampleFileUtils {
 
         //actualización a Optional
         //Se elimina IllegalArgumenException
-         Optional<File> optionalFile = Optional.ofNullable(Thread.currentThread().getContextClassLoader()).
+         Optional<File> optionalFile = Optional
+                 .ofNullable(Thread.currentThread().getContextClassLoader()).
                 map(classloader ->classloader.getResource(fileName)).
                 map(url -> new File(url.getFile()));
 
          //Se agrega log para informar que el archivo no ha sido encontrado
-         if(!optionalFile.isPresent()){
+         if(optionalFile.isEmpty()){
              LOGGER.info("File: "+fileName +" not found");
          }
 
          return optionalFile;
+    }
+
+    public static Optional<File> getFileFromSystem(String filePath){
+        File file=Paths.get(filePath).toFile();
+        
+        return Optional.of(file);
     }
 }

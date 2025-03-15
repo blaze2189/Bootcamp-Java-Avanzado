@@ -50,6 +50,27 @@ public class SpotifySongProcessor implements SongProcessor {
                 song.getSpotifyArtist().getName(), song.getAlbumName()));
     }
 
+    @Override
+    public void processSongs(String playlistFileName) {
+
+        LOGGER.info("Json received " + playlistFileName);
+
+        //Agregando Optional para la lectura
+        //del objet que se recibe del archivo
+        //en caso de que exista algùn error durante
+        //el procesamiento del archivo o transformaciòn
+        //del objeto, se devuelve una lista vacía
+        //el uso del optional ayuda a manejar NullPointerException
+        List<Song> songList = ExampleFileUtils.getFileFromSystem(playlistFileName).
+                map(ExampleFileUtils::getJsonFromFile).
+                map(this::processJsonSongs).
+                orElse(Collections.emptyList());
+
+        songList.forEach(song -> LOGGER.info(" - {} - {} - {} - {}", song.getId(), song.getName(),
+                song.getSpotifyArtist().getName(), song.getAlbumName()));
+
+    }
+
     private List<Song> processJsonSongs(JSONObject jsonObject) {
         LOGGER.info("Playlist: " + jsonObject.toString());
 
