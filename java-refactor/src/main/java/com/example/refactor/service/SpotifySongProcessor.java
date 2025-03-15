@@ -64,13 +64,13 @@ public final class SpotifySongProcessor implements SongProcessor{
         //el procesamiento del archivo o transformaciòn
         //del objeto, se devuelve una lista vacía
         //el uso del optional ayuda a manejar NullPointerException
-        List<Song> songList = ExampleFileUtils.getFileFromSystem(playlistFileName).
+        var songList = ExampleFileUtils.getFileFromSystem(playlistFileName).
                 map(ExampleFileUtils::getJsonFromFile).
                 map(this::processJsonSongs).
                 orElse(Collections.emptyList());
 
-        songList.forEach(song -> LOGGER.info(" - {} - {} - {} - {}", song.getId(), song.getName(),
-                song.getSpotifyArtist().getName(), song.getAlbumName()));
+        songList.forEach(song -> LOGGER.info(" - {} - {} - {} - {}", song.id(), song.name(),
+                song.artist().name(), song.albumName()));
 
     }
 

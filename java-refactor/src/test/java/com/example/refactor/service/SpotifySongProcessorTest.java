@@ -66,35 +66,6 @@ public class SpotifySongProcessorTest {
 
     }
 
-<<<<<<< HEAD
-=======
-    private Song processDTOSong(SpotifyDTO spotifyDTO) {
-        SpotifyTrackDTO trackDTO = spotifyDTO.track();
-        List<SpotifyArtisDTO> artistsList = trackDTO.artists();
-        Song.Builder songBuilder = Song.builder().explicit(trackDTO.explicit()).
-                id(trackDTO.id()).
-                playable(trackDTO.is_playable()).
-                name(trackDTO.name()).
-                popularity(trackDTO.popularity()).
-                albumType(trackDTO.album().get("album_type").toString()).
-                albumId(trackDTO.album().get("id").toString()).
-                albumName(trackDTO.album().get("name").toString()).
-                albumReleaseDate(trackDTO.album().get("release_date").toString()).
-                albumTotalTracks(trackDTO.album().get("total_tracks").toString());
-
-        artistsList.forEach(artists ->{
-            Artist artist = Artist.builder().
-                    id(artists.id()).
-                    name(artists.name()).
-                    build();
-            songBuilder.artist(artist);
-        });
-
-        return songBuilder.build();
-    }
-
-
->>>>>>> 1e42f1d (Updating to Java 23)
     @Test
     public void testDTOList() {
 

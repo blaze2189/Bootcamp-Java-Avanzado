@@ -9,7 +9,9 @@ package com.example.refactor.service;
  * implmentar esta interfaz y por lo tanto serán
  * especificadas en el permits
  * */
-public sealed interface SongProcessor permits  SpotifySongProcessor{ void processSongs();
+public sealed interface SongProcessor permits  SpotifySongProcessor{
+
+    void processSongs();
 
     void processSongs(String pathToFile);
 }

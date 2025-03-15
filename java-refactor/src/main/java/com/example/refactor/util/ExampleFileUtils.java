@@ -41,7 +41,7 @@ public class ExampleFileUtils {
 
         //actualización a Optional
         //Se elimina IllegalArgumenException
-         Optional<File> optionalFile = Optional
+         var optionalFile = Optional
                  .ofNullable(Thread.currentThread().getContextClassLoader()).
                 map(classloader ->classloader.getResource(fileName)).
                 map(url -> new File(url.getFile()));
@@ -55,7 +55,7 @@ public class ExampleFileUtils {
     }
 
     public static Optional<File> getFileFromSystem(String filePath){
-        File file=Paths.get(filePath).toFile();
+        var file=Paths.get(filePath).toFile();
         
         return Optional.of(file);
     }
